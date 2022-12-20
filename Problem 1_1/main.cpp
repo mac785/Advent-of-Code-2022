@@ -19,7 +19,8 @@ int main(int argc, char **argv) {
 
 	//while(getline(readFile, readIn)) {
 	//while (!readFile.eof()) {
-	while (readFile.good()) {
+	//while (readFile.good()) {
+	for (int i = 0; i < 2264; i++){
 		getline(readFile, readIn);
 		if (!readIn.empty()) {
 			currentCalories += stoi(readIn);
@@ -33,22 +34,7 @@ int main(int argc, char **argv) {
 				if (argc!= 1 && current == stoi(argv[1])) {break;}
 			}
 		}
-	} 
-	while (readFile.good()) {
-		getline(readFile, readIn);
-		if (!readIn.empty()) {
-			currentCalories += stoi(readIn);
-		}
-		else {
-			if (currentCalories > bestCalories) {
-				bestCalories = currentCalories;
-				currentCalories = 0;
-				best = current;
-				current++;
-				if (argc!= 1 && current == stoi(argv[1])) {break;}
-			}
-		}
-	} 
+	}
 	readFile.close();
 	cout << current << endl;
 	ofstream outFile;
