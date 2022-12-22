@@ -1,2 +1,1 @@
-Best: 30
-Best Calories: 722032
+Sum of 3 Best Calories: 206289

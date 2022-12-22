@@ -1,6 +1,8 @@
 #include <fstream>
 #include <string>
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,36 +13,33 @@ int main(int argc, char **argv) {
 	int currentCalories = 0;
 
 	string readIn;
+	vector<int> storage;
 
-	//ifstream readFile("input.txt", ios_base::in | ios_base::binary);
 	ifstream readFile;
 	readFile.open("input.txt", std::ifstream::in);
-	//readFile.open("input.txt");
 
-	//while(getline(readFile, readIn)) {
-	//while (!readFile.eof()) {
-	//while (readFile.good()) {
 	for (int i = 0; i < 2264; i++){
 		getline(readFile, readIn);
 		if (!readIn.empty()) {
 			currentCalories += stoi(readIn);
 		}
 		else {
-			if (currentCalories > bestCalories) {
-				bestCalories = currentCalories;
-				currentCalories = 0;
-				best = current;
-				current++;
-				if (argc!= 1 && current == stoi(argv[1])) {break;}
-			}
+			storage.emplace_back(currentCalories);
+			currentCalories = 0;
+			current++;
+			if (argc!= 1 && current == stoi(argv[1])) {break;}
 		}
 	}
 	readFile.close();
 	cout << current << endl;
+
+	sort(storage.begin(), storage.end(), greater<int>());
+
+	int sum = storage.at(0) + storage.at(1) + storage.at(2);
+
 	ofstream outFile;
 	outFile.open("results.txt");
-	outFile << "Best: " << best << endl;
-	outFile << "Best Calories: " << bestCalories << endl;
+	outFile << "Sum of 3 Best Calories: " << sum << endl;
 	outFile.close();
 
 	return 0;
