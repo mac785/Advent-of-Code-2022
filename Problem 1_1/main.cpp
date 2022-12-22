@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 	ifstream readFile;
 	readFile.open("input.txt", std::ifstream::in);
 
-	for (int i = 0; i < 2264; i++){
+	while(!readFile.eof()){
 		getline(readFile, readIn);
 		if (!readIn.empty()) {
 			currentCalories += stoi(readIn);
