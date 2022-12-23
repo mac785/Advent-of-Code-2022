@@ -27,17 +27,17 @@ int main(int argc, char **argv) {
 	map<tuple<char,char>, int> scores;
 
 	// Losses
-	scores.emplace(tuple<char,char>('A','Z'), 3);
+	scores.emplace(tuple<char,char>('A','X'), 3);
 	scores.emplace(tuple<char,char>('B','X'), 1);
-	scores.emplace(tuple<char,char>('C','Y'), 2);
+	scores.emplace(tuple<char,char>('C','X'), 2);
 	// Ties
-	scores.emplace(tuple<char,char>('A','X'), 4);
+	scores.emplace(tuple<char,char>('A','Y'), 4);
 	scores.emplace(tuple<char,char>('B','Y'), 5);
-	scores.emplace(tuple<char,char>('C','Z'), 6);
+	scores.emplace(tuple<char,char>('C','Y'), 6);
 	// Wins
-	scores.emplace(tuple<char,char>('A','Y'), 8);
+	scores.emplace(tuple<char,char>('A','Z'), 8);
 	scores.emplace(tuple<char,char>('B','Z'), 9);
-	scores.emplace(tuple<char,char>('C','X'), 7);
+	scores.emplace(tuple<char,char>('C','Z'), 7);
 
 	int score = 0;
 
